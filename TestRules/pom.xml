@@ -4,29 +4,61 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	
-	<parent>
-        <groupId>org.drools</groupId>
-        <artifactId>droolsjbpm-integration</artifactId>
-        <version>7.4.1.Final</version>
-    </parent>
-	
-	
+
+	<!-- <parent> <groupId>org.drools</groupId> <artifactId>droolsjbpm-integration</artifactId> 
+		<version>7.4.1.Final</version> </parent> -->
+
 	<groupId>com.sample</groupId>
 	<artifactId>TestRules</artifactId>
 	<version>1.0.0</version>
-	<packaging>kjar</packaging>
+	<packaging>jar</packaging>
 
-	<name>Drools :: Sample Maven Project</name>
-	<description>A sample Drools Maven project</description>
 
 	<properties>
 		<runtime.version>7.14.0.Final-redhat-00002</runtime.version>
 		<rhdm.version>7.14.0.Final</rhdm.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+		<!-- maven-compiler-plugin -->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.redhat.ba</groupId>
+				<artifactId>ba-platform-bom</artifactId>
+				<version>7.2.0.GA-redhat-00002</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-api</artifactId>
+			<version>${runtime.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${runtime.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-canonical-model</artifactId>
+			<version>${rhdm.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-model-compiler</artifactId>
+			<version>${rhdm.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 </project>

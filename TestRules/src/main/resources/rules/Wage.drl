@@ -6,9 +6,10 @@ dialect "java"
 
 rule "Wage"
   when
-    Person(hourlyRate * wage > 100)
+    $p : Person(hourlyRate * wage > 100)
     Person(name : firstName, surname : lastName)
   then
+    $p.setStatus("Rich");
     System.out.println("Hello" + " " + name + " " + surname + "!");
     System.out.println("You are rich!");
 end

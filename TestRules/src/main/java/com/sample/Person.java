@@ -5,6 +5,7 @@ public class Person {
 	private String lastName;
 	private Integer hourlyRate;
 	private Integer wage;
+	private String status;
 
 	public String getFirstName() {
 		return firstName;
@@ -36,5 +37,13 @@ public class Person {
 
 	public void setWage(Integer wage) {
 		this.wage = wage;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }
